@@ -1,0 +1,324 @@
+{
+	"info": {
+		"_postman_id": "5a98dca2-f1f8-435f-b00b-39e7b032355b",
+		"name": "Tech Medicos Hackaton API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17846603",
+		"_collection_link": "https://red-robot-133413.postman.co/workspace/Teste~2e4990a5-a525-4806-8c4c-49a4fd1761b8/collection/17846603-5a98dca2-f1f8-435f-b00b-39e7b032355b?action=share&source=collection_link&creator=17846603"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Medico",
+					"item": [
+						{
+							"name": "{medicoId}",
+							"item": [
+								{
+									"name": "Obter agenda",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{acessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"medicos",
+												":medicoId",
+												"agenda"
+											],
+											"variable": [
+												{
+													"key": "medicoId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Realizar cadastro na agenda",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{acessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"data\": \"2024-07-25\",\r\n  \"horarios\": [\r\n    {\r\n      \"horaInicio\": \"09:00:00\"\r\n    }\r\n  ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"medicos",
+												":medicoId",
+												"agenda"
+											],
+											"variable": [
+												{
+													"key": "medicoId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Realizar atualização na agenda",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{acessToken}}"
+											}
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "[\r\n  {\r\n    \"horaInicio\": \"10:00:00\"\r\n  }\r\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda/:data",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"medicos",
+												":medicoId",
+												"agenda",
+												":data"
+											],
+											"variable": [
+												{
+													"key": "medicoId",
+													"value": ""
+												},
+												{
+													"key": "data",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Realizar exclusão na agenda",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{acessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda/:data",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"medicos",
+												":medicoId",
+												"agenda",
+												":data"
+											],
+											"variable": [
+												{
+													"key": "medicoId",
+													"value": ""
+												},
+												{
+													"key": "data",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Obter todos médicos",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{acessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrlApi}}/api/medicos"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Consulta",
+					"item": [
+						{
+							"name": "{consultaId}",
+							"item": [
+								{
+									"name": "Obter consulta por id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{acessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrlApi}}/api/consultas/:consultaId",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"consultas",
+												":consultaId"
+											],
+											"variable": [
+												{
+													"key": "consultaId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Realizar alteração de status da consulta",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{acessToken}}"
+											}
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Token-Id",
+												"value": "{{tokenId}}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"status\": 0,\r\n  \"justificativa\": \"string\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrlApi}}/api/consultas/:consultaId/status",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"consultas",
+												":consultaId",
+												"status"
+											],
+											"variable": [
+												{
+													"key": "consultaId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Realizar cadastro na consulta",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{acessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"medicoId\": \"string\",\r\n  \"pacienteId\": \"string\",\r\n  \"dataConsulta\": \"2024-07-25T09:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrlApi}}/api/consultas"
+							},
+							"response": []
+						},
+						{
+							"name": "Obter todas consultas",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{acessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrlApi}}/api/consultas"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
