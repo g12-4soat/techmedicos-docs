@@ -1,213 +1,291 @@
 {
 	"info": {
-		"_postman_id": "5a98dca2-f1f8-435f-b00b-39e7b032355b",
+		"_postman_id": "ca900e03-2fad-459e-9496-d1d193679528",
 		"name": "Tech Medicos Hackaton API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "17846603",
-		"_collection_link": "https://red-robot-133413.postman.co/workspace/Teste~2e4990a5-a525-4806-8c4c-49a4fd1761b8/collection/17846603-5a98dca2-f1f8-435f-b00b-39e7b032355b?action=share&source=collection_link&creator=17846603"
+		"description": "Tech Médicos API Swagger\n\nContact Support:\n Name: Tech Médicos\n Email: g12.4soat.fiap@outlook.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24235764"
 	},
 	"item": [
 		{
 			"name": "api",
 			"item": [
 				{
-					"name": "Medico",
-					"item": [
-						{
-							"name": "{medicoId}",
-							"item": [
-								{
-									"name": "Obter agenda",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{acessTokenMedico}}"
-											}
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda",
-											"host": [
-												"{{baseUrlApi}}"
-											],
-											"path": [
-												"api",
-												"medicos",
-												":medicoId",
-												"agenda"
-											],
-											"variable": [
-												{
-													"key": "medicoId",
-													"value": ""
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Realizar cadastro na agenda",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{acessTokenMedico}}"
-											}
-										},
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n  \"data\": \"2024-07-25\",\r\n  \"horarios\": [\r\n    {\r\n      \"horaInicio\": \"09:00:00\"\r\n    }\r\n  ]\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda",
-											"host": [
-												"{{baseUrlApi}}"
-											],
-											"path": [
-												"api",
-												"medicos",
-												":medicoId",
-												"agenda"
-											],
-											"variable": [
-												{
-													"key": "medicoId",
-													"value": ""
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Realizar atualização na agenda",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{acessTokenMedico}}"
-											}
-										},
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "[\r\n  {\r\n    \"horaInicio\": \"10:00:00\"\r\n  }\r\n]",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda/:data",
-											"host": [
-												"{{baseUrlApi}}"
-											],
-											"path": [
-												"api",
-												"medicos",
-												":medicoId",
-												"agenda",
-												":data"
-											],
-											"variable": [
-												{
-													"key": "medicoId",
-													"value": ""
-												},
-												{
-													"key": "data",
-													"value": ""
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Realizar exclusão na agenda",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{acessTokenMedico}}"
-											}
-										},
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda/:data",
-											"host": [
-												"{{baseUrlApi}}"
-											],
-											"path": [
-												"api",
-												"medicos",
-												":medicoId",
-												"agenda",
-												":data"
-											],
-											"variable": [
-												{
-													"key": "medicoId",
-													"value": ""
-												},
-												{
-													"key": "data",
-													"value": ""
-												}
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "Obter todos médicos",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{acessTokenPaciente}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": "{{baseUrlApi}}/api/medicos"
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Consulta",
+					"name": "consultas",
 					"item": [
 						{
 							"name": "{consultaId}",
 							"item": [
 								{
+									"name": "status",
+									"item": [
+										{
+											"name": "Realizar atualização de status da consulta",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"status\": 4,\n  \"justificativa\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrlApi}}/api/consultas/:consultaId/status",
+													"host": [
+														"{{baseUrlApi}}"
+													],
+													"path": [
+														"api",
+														"consultas",
+														":consultaId",
+														"status"
+													],
+													"variable": [
+														{
+															"key": "consultaId",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												},
+												"description": "Efetua a atualização do status"
+											},
+											"response": [
+												{
+													"name": "Status atualizado com sucesso",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"status\": 4,\n  \"justificativa\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrlApi}}/api/consultas/:consultaId/status",
+															"host": [
+																"{{baseUrlApi}}"
+															],
+															"path": [
+																"api",
+																"consultas",
+																":consultaId",
+																"status"
+															],
+															"variable": [
+																{
+																	"key": "consultaId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Requisição inválida",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"status\": 4,\n  \"justificativa\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrlApi}}/api/consultas/:consultaId/status",
+															"host": [
+																"{{baseUrlApi}}"
+															],
+															"path": [
+																"api",
+																"consultas",
+																":consultaId",
+																"status"
+															],
+															"variable": [
+																{
+																	"key": "consultaId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+												},
+												{
+													"name": "Consulta não encontrada",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"status\": 4,\n  \"justificativa\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrlApi}}/api/consultas/:consultaId/status",
+															"host": [
+																"{{baseUrlApi}}"
+															],
+															"path": [
+																"api",
+																"consultas",
+																":consultaId",
+																"status"
+															],
+															"variable": [
+																{
+																	"key": "consultaId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+												},
+												{
+													"name": "Erro no servidor interno",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"status\": 4,\n  \"justificativa\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrlApi}}/api/consultas/:consultaId/status",
+															"host": [
+																"{{baseUrlApi}}"
+															],
+															"path": [
+																"api",
+																"consultas",
+																":consultaId",
+																"status"
+															],
+															"variable": [
+																{
+																	"key": "consultaId"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
 									"name": "Obter consulta por id",
 									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{acessTokenPaciente}}"
-											}
-										},
 										"method": "GET",
-										"header": [],
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
 										"url": {
 											"raw": "{{baseUrlApi}}/api/consultas/:consultaId",
 											"host": [
@@ -221,151 +299,1755 @@
 											"variable": [
 												{
 													"key": "consultaId",
-													"value": ""
+													"value": "<string>",
+													"description": "(Required) "
 												}
 											]
-										}
+										},
+										"description": "Retorna a consulta com o id informado"
 									},
-									"response": []
-								},
-								{
-									"name": "Realizar alteração de status da consulta - medico",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{acessTokenMedico}}"
-											}
-										},
-										"method": "PUT",
-										"header": [
-											{
-												"key": "Token-Id",
-												"value": "{{tokenIdMedico}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n  \"status\": 0,\r\n  \"justificativa\": \"string\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
+									"response": [
+										{
+											"name": "Consulta encontrada com sucesso",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrlApi}}/api/consultas/:consultaId",
+													"host": [
+														"{{baseUrlApi}}"
+													],
+													"path": [
+														"api",
+														"consultas",
+														":consultaId"
+													],
+													"variable": [
+														{
+															"key": "consultaId"
+														}
+													]
 												}
-											}
-										},
-										"url": {
-											"raw": "{{baseUrlApi}}/api/consultas/:consultaId/status",
-											"host": [
-												"{{baseUrlApi}}"
-											],
-											"path": [
-												"api",
-												"consultas",
-												":consultaId",
-												"status"
-											],
-											"variable": [
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
 												{
-													"key": "consultaId",
-													"value": ""
+													"key": "Content-Type",
+													"value": "application/json"
 												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Realizar alteração de status da consulta - paciente",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{acessTokenPaciente}}"
-											}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<string>\",\n  \"medicoId\": \"<string>\",\n  \"medico\": {\n    \"id\": \"<string>\",\n    \"crm\": \"<string>\",\n    \"valorConsulta\": \"<double>\",\n    \"nome\": \"<string>\"\n  },\n  \"pacienteId\": \"<string>\",\n  \"paciente\": {\n    \"id\": \"<string>\",\n    \"cpf\": \"<string>\",\n    \"email\": \"<string>\",\n    \"nome\": \"<string>\"\n  },\n  \"dataConsulta\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"justificativa\": \"<string>\",\n  \"valor\": \"<double>\"\n}"
 										},
-										"method": "PUT",
-										"header": [
-											{
-												"key": "Token-Id",
-												"value": "{{tokenIdMedico}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n  \"status\": 0,\r\n  \"justificativa\": \"string\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
+										{
+											"name": "Requisição inválida",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrlApi}}/api/consultas/:consultaId",
+													"host": [
+														"{{baseUrlApi}}"
+													],
+													"path": [
+														"api",
+														"consultas",
+														":consultaId"
+													],
+													"variable": [
+														{
+															"key": "consultaId"
+														}
+													]
 												}
-											}
-										},
-										"url": {
-											"raw": "{{baseUrlApi}}/api/consultas/:consultaId/status",
-											"host": [
-												"{{baseUrlApi}}"
-											],
-											"path": [
-												"api",
-												"consultas",
-												":consultaId",
-												"status"
-											],
-											"variable": [
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
 												{
-													"key": "consultaId",
-													"value": ""
+													"key": "Content-Type",
+													"value": "application/json"
 												}
-											]
+											],
+											"cookie": [],
+											"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+										},
+										{
+											"name": "Consulta não encontrada",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrlApi}}/api/consultas/:consultaId",
+													"host": [
+														"{{baseUrlApi}}"
+													],
+													"path": [
+														"api",
+														"consultas",
+														":consultaId"
+													],
+													"variable": [
+														{
+															"key": "consultaId"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+										},
+										{
+											"name": "Erro no servidor interno",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrlApi}}/api/consultas/:consultaId",
+													"host": [
+														"{{baseUrlApi}}"
+													],
+													"path": [
+														"api",
+														"consultas",
+														":consultaId"
+													],
+													"variable": [
+														{
+															"key": "consultaId"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
 										}
-									},
-									"response": []
+									]
 								}
 							]
 						},
 						{
-							"name": "Realizar cadastro na consulta",
+							"name": "Realizar cadastro da consulta",
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{acessTokenPaciente}}"
-									}
-								},
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"medicoId\": \"string\",\r\n  \"pacienteId\": \"string\",\r\n  \"dataConsulta\": \"2024-07-25T09:00\"\r\n}",
+									"raw": "{\n  \"medicoId\": \"<string>\",\n  \"pacienteId\": \"<string>\",\n  \"dataConsulta\": \"<dateTime>\"\n}",
 									"options": {
 										"raw": {
+											"headerFamily": "json",
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{baseUrlApi}}/api/consultas"
+								"url": {
+									"raw": "{{baseUrlApi}}/api/consultas",
+									"host": [
+										"{{baseUrlApi}}"
+									],
+									"path": [
+										"api",
+										"consultas"
+									]
+								},
+								"description": "Efetua a criação da consulta"
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Consulta criada com sucesso",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"medicoId\": \"<string>\",\n  \"pacienteId\": \"<string>\",\n  \"dataConsulta\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrlApi}}/api/consultas",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"consultas"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Requisição inválida",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"medicoId\": \"<string>\",\n  \"pacienteId\": \"<string>\",\n  \"dataConsulta\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrlApi}}/api/consultas",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"consultas"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+								},
+								{
+									"name": "Falha ao realizar a criação da consulta",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"medicoId\": \"<string>\",\n  \"pacienteId\": \"<string>\",\n  \"dataConsulta\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrlApi}}/api/consultas",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"consultas"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+								},
+								{
+									"name": "Erro no servidor interno",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"medicoId\": \"<string>\",\n  \"pacienteId\": \"<string>\",\n  \"dataConsulta\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrlApi}}/api/consultas",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"consultas"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+								}
+							]
 						},
 						{
-							"name": "Obter todas consultas",
+							"name": "Obter todas as consultas",
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{acessTokenPaciente}}"
-									}
-								},
 								"method": "GET",
-								"header": [],
-								"url": "{{baseUrlApi}}/api/consultas"
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrlApi}}/api/consultas",
+									"host": [
+										"{{baseUrlApi}}"
+									],
+									"path": [
+										"api",
+										"consultas"
+									]
+								},
+								"description": "Retorna todas as consultas cadastradas"
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Consultas encontradas com sucesso",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrlApi}}/api/consultas",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"consultas"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<string>\",\n    \"medicoId\": \"<string>\",\n    \"medico\": {\n      \"id\": \"<string>\",\n      \"crm\": \"<string>\",\n      \"valorConsulta\": \"<double>\",\n      \"nome\": \"<string>\"\n    },\n    \"pacienteId\": \"<string>\",\n    \"paciente\": {\n      \"id\": \"<string>\",\n      \"cpf\": \"<string>\",\n      \"email\": \"<string>\",\n      \"nome\": \"<string>\"\n    },\n    \"dataConsulta\": \"<dateTime>\",\n    \"status\": \"<string>\",\n    \"justificativa\": \"<string>\",\n    \"valor\": \"<double>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"medicoId\": \"<string>\",\n    \"medico\": {\n      \"id\": \"<string>\",\n      \"crm\": \"<string>\",\n      \"valorConsulta\": \"<double>\",\n      \"nome\": \"<string>\"\n    },\n    \"pacienteId\": \"<string>\",\n    \"paciente\": {\n      \"id\": \"<string>\",\n      \"cpf\": \"<string>\",\n      \"email\": \"<string>\",\n      \"nome\": \"<string>\"\n    },\n    \"dataConsulta\": \"<dateTime>\",\n    \"status\": \"<string>\",\n    \"justificativa\": \"<string>\",\n    \"valor\": \"<double>\"\n  }\n]"
+								},
+								{
+									"name": "Requisição inválida",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrlApi}}/api/consultas",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"consultas"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+								},
+								{
+									"name": "Consulta não encontrada",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrlApi}}/api/consultas",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"consultas"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+								},
+								{
+									"name": "Erro no servidor interno",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrlApi}}/api/consultas",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"consultas"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "medicos",
+					"item": [
+						{
+							"name": "{medicoId}",
+							"item": [
+								{
+									"name": "agenda",
+									"item": [
+										{
+											"name": "{data}",
+											"item": [
+												{
+													"name": "Realizar a atualização da agenda",
+													"request": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "[\n  {\n    \"horaInicio\": \"<time>\"\n  },\n  {\n    \"horaInicio\": \"<time>\"\n  }\n]",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda/:data",
+															"host": [
+																"{{baseUrlApi}}"
+															],
+															"path": [
+																"api",
+																"medicos",
+																":medicoId",
+																"agenda",
+																":data"
+															],
+															"variable": [
+																{
+																	"key": "medicoId",
+																	"value": "<string>",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "data",
+																	"value": "<date>",
+																	"description": "(Required) "
+																}
+															]
+														},
+														"description": "Efetua a atualização dos horários"
+													},
+													"response": [
+														{
+															"name": "Horários atualizados com sucesso",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "[\n  {\n    \"horaInicio\": \"<time>\"\n  },\n  {\n    \"horaInicio\": \"<time>\"\n  }\n]",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda/:data",
+																	"host": [
+																		"{{baseUrlApi}}"
+																	],
+																	"path": [
+																		"api",
+																		"medicos",
+																		":medicoId",
+																		"agenda",
+																		":data"
+																	],
+																	"variable": [
+																		{
+																			"key": "medicoId"
+																		},
+																		{
+																			"key": "data"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"data\": \"<date>\",\n  \"valorConsulta\": \"<double>\",\n  \"horarios\": [\n    {\n      \"horaInicio\": \"<time>\",\n      \"horaFim\": \"<time>\"\n    },\n    {\n      \"horaInicio\": \"<time>\",\n      \"horaFim\": \"<time>\"\n    }\n  ]\n}"
+														},
+														{
+															"name": "Requisição inválida",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "[\n  {\n    \"horaInicio\": \"<time>\"\n  },\n  {\n    \"horaInicio\": \"<time>\"\n  }\n]",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda/:data",
+																	"host": [
+																		"{{baseUrlApi}}"
+																	],
+																	"path": [
+																		"api",
+																		"medicos",
+																		":medicoId",
+																		"agenda",
+																		":data"
+																	],
+																	"variable": [
+																		{
+																			"key": "medicoId"
+																		},
+																		{
+																			"key": "data"
+																		}
+																	]
+																}
+															},
+															"status": "Bad Request",
+															"code": 400,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+														},
+														{
+															"name": "Falha ao realizar a atualização",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "[\n  {\n    \"horaInicio\": \"<time>\"\n  },\n  {\n    \"horaInicio\": \"<time>\"\n  }\n]",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda/:data",
+																	"host": [
+																		"{{baseUrlApi}}"
+																	],
+																	"path": [
+																		"api",
+																		"medicos",
+																		":medicoId",
+																		"agenda",
+																		":data"
+																	],
+																	"variable": [
+																		{
+																			"key": "medicoId"
+																		},
+																		{
+																			"key": "data"
+																		}
+																	]
+																}
+															},
+															"status": "Not Found",
+															"code": 404,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+														},
+														{
+															"name": "Erro no servidor interno",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "[\n  {\n    \"horaInicio\": \"<time>\"\n  },\n  {\n    \"horaInicio\": \"<time>\"\n  }\n]",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda/:data",
+																	"host": [
+																		"{{baseUrlApi}}"
+																	],
+																	"path": [
+																		"api",
+																		"medicos",
+																		":medicoId",
+																		"agenda",
+																		":data"
+																	],
+																	"variable": [
+																		{
+																			"key": "medicoId"
+																		},
+																		{
+																			"key": "data"
+																		}
+																	]
+																}
+															},
+															"status": "Internal Server Error",
+															"code": 500,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+														}
+													]
+												},
+												{
+													"name": "Realizar a exclusão da agenda",
+													"request": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda/:data",
+															"host": [
+																"{{baseUrlApi}}"
+															],
+															"path": [
+																"api",
+																"medicos",
+																":medicoId",
+																"agenda",
+																":data"
+															],
+															"variable": [
+																{
+																	"key": "medicoId",
+																	"value": "<string>",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "data",
+																	"value": "<date>",
+																	"description": "(Required) "
+																}
+															]
+														},
+														"description": "Efetua a exclusão da agenda"
+													},
+													"response": [
+														{
+															"name": "Agenda exlcuída com sucesso",
+															"originalRequest": {
+																"method": "DELETE",
+																"header": [],
+																"url": {
+																	"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda/:data",
+																	"host": [
+																		"{{baseUrlApi}}"
+																	],
+																	"path": [
+																		"api",
+																		"medicos",
+																		":medicoId",
+																		"agenda",
+																		":data"
+																	],
+																	"variable": [
+																		{
+																			"key": "medicoId"
+																		},
+																		{
+																			"key": "data"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														},
+														{
+															"name": "Requisição inválida",
+															"originalRequest": {
+																"method": "DELETE",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda/:data",
+																	"host": [
+																		"{{baseUrlApi}}"
+																	],
+																	"path": [
+																		"api",
+																		"medicos",
+																		":medicoId",
+																		"agenda",
+																		":data"
+																	],
+																	"variable": [
+																		{
+																			"key": "medicoId"
+																		},
+																		{
+																			"key": "data"
+																		}
+																	]
+																}
+															},
+															"status": "Bad Request",
+															"code": 400,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+														},
+														{
+															"name": "Falha ao realizar a exclusão",
+															"originalRequest": {
+																"method": "DELETE",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda/:data",
+																	"host": [
+																		"{{baseUrlApi}}"
+																	],
+																	"path": [
+																		"api",
+																		"medicos",
+																		":medicoId",
+																		"agenda",
+																		":data"
+																	],
+																	"variable": [
+																		{
+																			"key": "medicoId"
+																		},
+																		{
+																			"key": "data"
+																		}
+																	]
+																}
+															},
+															"status": "Not Found",
+															"code": 404,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+														},
+														{
+															"name": "Erro no servidor interno",
+															"originalRequest": {
+																"method": "DELETE",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda/:data",
+																	"host": [
+																		"{{baseUrlApi}}"
+																	],
+																	"path": [
+																		"api",
+																		"medicos",
+																		":medicoId",
+																		"agenda",
+																		":data"
+																	],
+																	"variable": [
+																		{
+																			"key": "medicoId"
+																		},
+																		{
+																			"key": "data"
+																		}
+																	]
+																}
+															},
+															"status": "Internal Server Error",
+															"code": 500,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+														}
+													]
+												}
+											]
+										},
+										{
+											"name": "Obter agenda",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda",
+													"host": [
+														"{{baseUrlApi}}"
+													],
+													"path": [
+														"api",
+														"medicos",
+														":medicoId",
+														"agenda"
+													],
+													"variable": [
+														{
+															"key": "medicoId",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												},
+												"description": "Retorna a agenda com o id informado"
+											},
+											"response": [
+												{
+													"name": "Agenda encontrada com sucesso",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda",
+															"host": [
+																"{{baseUrlApi}}"
+															],
+															"path": [
+																"api",
+																"medicos",
+																":medicoId",
+																"agenda"
+															],
+															"variable": [
+																{
+																	"key": "medicoId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"data\": \"<date>\",\n  \"valorConsulta\": \"<double>\",\n  \"horarios\": [\n    {\n      \"horaInicio\": \"<time>\",\n      \"horaFim\": \"<time>\"\n    },\n    {\n      \"horaInicio\": \"<time>\",\n      \"horaFim\": \"<time>\"\n    }\n  ]\n}"
+												},
+												{
+													"name": "Requisição inválida",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda",
+															"host": [
+																"{{baseUrlApi}}"
+															],
+															"path": [
+																"api",
+																"medicos",
+																":medicoId",
+																"agenda"
+															],
+															"variable": [
+																{
+																	"key": "medicoId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+												},
+												{
+													"name": "Agenda não encontrada",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda",
+															"host": [
+																"{{baseUrlApi}}"
+															],
+															"path": [
+																"api",
+																"medicos",
+																":medicoId",
+																"agenda"
+															],
+															"variable": [
+																{
+																	"key": "medicoId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+												},
+												{
+													"name": "Erro no servidor interno",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda",
+															"host": [
+																"{{baseUrlApi}}"
+															],
+															"path": [
+																"api",
+																"medicos",
+																":medicoId",
+																"agenda"
+															],
+															"variable": [
+																{
+																	"key": "medicoId"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Realizar cadastro da agenda",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"data\": \"<date>\",\n  \"horarios\": [\n    {\n      \"horaInicio\": \"<time>\"\n    },\n    {\n      \"horaInicio\": \"<time>\"\n    }\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda",
+													"host": [
+														"{{baseUrlApi}}"
+													],
+													"path": [
+														"api",
+														"medicos",
+														":medicoId",
+														"agenda"
+													],
+													"variable": [
+														{
+															"key": "medicoId",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												},
+												"description": "Efetua o cadastro dos horários disponiveis"
+											},
+											"response": [
+												{
+													"name": "Horários cadastrados com sucesso",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"data\": \"<date>\",\n  \"horarios\": [\n    {\n      \"horaInicio\": \"<time>\"\n    },\n    {\n      \"horaInicio\": \"<time>\"\n    }\n  ]\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda",
+															"host": [
+																"{{baseUrlApi}}"
+															],
+															"path": [
+																"api",
+																"medicos",
+																":medicoId",
+																"agenda"
+															],
+															"variable": [
+																{
+																	"key": "medicoId"
+																}
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"data\": \"<date>\",\n  \"valorConsulta\": \"<double>\",\n  \"horarios\": [\n    {\n      \"horaInicio\": \"<time>\",\n      \"horaFim\": \"<time>\"\n    },\n    {\n      \"horaInicio\": \"<time>\",\n      \"horaFim\": \"<time>\"\n    }\n  ]\n}"
+												},
+												{
+													"name": "Requisição inválida",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"data\": \"<date>\",\n  \"horarios\": [\n    {\n      \"horaInicio\": \"<time>\"\n    },\n    {\n      \"horaInicio\": \"<time>\"\n    }\n  ]\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda",
+															"host": [
+																"{{baseUrlApi}}"
+															],
+															"path": [
+																"api",
+																"medicos",
+																":medicoId",
+																"agenda"
+															],
+															"variable": [
+																{
+																	"key": "medicoId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+												},
+												{
+													"name": "Falha ao realizar o cadastro",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"data\": \"<date>\",\n  \"horarios\": [\n    {\n      \"horaInicio\": \"<time>\"\n    },\n    {\n      \"horaInicio\": \"<time>\"\n    }\n  ]\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda",
+															"host": [
+																"{{baseUrlApi}}"
+															],
+															"path": [
+																"api",
+																"medicos",
+																":medicoId",
+																"agenda"
+															],
+															"variable": [
+																{
+																	"key": "medicoId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+												},
+												{
+													"name": "Erro no servidor interno",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"data\": \"<date>\",\n  \"horarios\": [\n    {\n      \"horaInicio\": \"<time>\"\n    },\n    {\n      \"horaInicio\": \"<time>\"\n    }\n  ]\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda",
+															"host": [
+																"{{baseUrlApi}}"
+															],
+															"path": [
+																"api",
+																"medicos",
+																":medicoId",
+																"agenda"
+															],
+															"variable": [
+																{
+																	"key": "medicoId"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Obter todos os médicos cadastrados",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrlApi}}/api/medicos?especialidade=2&distanciaKm=<integer>&avaliacao=<double>",
+									"host": [
+										"{{baseUrlApi}}"
+									],
+									"path": [
+										"api",
+										"medicos"
+									],
+									"query": [
+										{
+											"key": "especialidade",
+											"value": "2"
+										},
+										{
+											"key": "distanciaKm",
+											"value": "<integer>"
+										},
+										{
+											"key": "avaliacao",
+											"value": "<double>"
+										}
+									]
+								},
+								"description": "Retorna todos os médicos"
+							},
+							"response": [
+								{
+									"name": "Médicos encontrados com sucesso",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrlApi}}/api/medicos?especialidade=2&distanciaKm=<integer>&avaliacao=<double>",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"medicos"
+											],
+											"query": [
+												{
+													"key": "especialidade",
+													"value": "2"
+												},
+												{
+													"key": "distanciaKm",
+													"value": "<integer>"
+												},
+												{
+													"key": "avaliacao",
+													"value": "<double>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<string>\",\n    \"agendas\": [\n      {\n        \"data\": \"<date>\",\n        \"valorConsulta\": \"<double>\",\n        \"horarios\": [\n          {\n            \"horaInicio\": \"<time>\",\n            \"horaFim\": \"<time>\"\n          },\n          {\n            \"horaInicio\": \"<time>\",\n            \"horaFim\": \"<time>\"\n          }\n        ]\n      },\n      {\n        \"data\": \"<date>\",\n        \"valorConsulta\": \"<double>\",\n        \"horarios\": [\n          {\n            \"horaInicio\": \"<time>\",\n            \"horaFim\": \"<time>\"\n          },\n          {\n            \"horaInicio\": \"<time>\",\n            \"horaFim\": \"<time>\"\n          }\n        ]\n      }\n    ],\n    \"crm\": \"<string>\",\n    \"valorConsulta\": \"<double>\",\n    \"nome\": \"<string>\",\n    \"distanciaKm\": \"<integer>\",\n    \"avaliacao\": \"<double>\",\n    \"especialidade\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"agendas\": [\n      {\n        \"data\": \"<date>\",\n        \"valorConsulta\": \"<double>\",\n        \"horarios\": [\n          {\n            \"horaInicio\": \"<time>\",\n            \"horaFim\": \"<time>\"\n          },\n          {\n            \"horaInicio\": \"<time>\",\n            \"horaFim\": \"<time>\"\n          }\n        ]\n      },\n      {\n        \"data\": \"<date>\",\n        \"valorConsulta\": \"<double>\",\n        \"horarios\": [\n          {\n            \"horaInicio\": \"<time>\",\n            \"horaFim\": \"<time>\"\n          },\n          {\n            \"horaInicio\": \"<time>\",\n            \"horaFim\": \"<time>\"\n          }\n        ]\n      }\n    ],\n    \"crm\": \"<string>\",\n    \"valorConsulta\": \"<double>\",\n    \"nome\": \"<string>\",\n    \"distanciaKm\": \"<integer>\",\n    \"avaliacao\": \"<double>\",\n    \"especialidade\": \"<string>\"\n  }\n]"
+								},
+								{
+									"name": "Requisição inválida",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrlApi}}/api/medicos?especialidade=2&distanciaKm=<integer>&avaliacao=<double>",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"medicos"
+											],
+											"query": [
+												{
+													"key": "especialidade",
+													"value": "2"
+												},
+												{
+													"key": "distanciaKm",
+													"value": "<integer>"
+												},
+												{
+													"key": "avaliacao",
+													"value": "<double>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+								},
+								{
+									"name": "Nenhum médico encontrado",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrlApi}}/api/medicos?especialidade=2&distanciaKm=<integer>&avaliacao=<double>",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"medicos"
+											],
+											"query": [
+												{
+													"key": "especialidade",
+													"value": "2"
+												},
+												{
+													"key": "distanciaKm",
+													"value": "<integer>"
+												},
+												{
+													"key": "avaliacao",
+													"value": "<double>"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+								},
+								{
+									"name": "Erro no servidor interno",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrlApi}}/api/medicos?especialidade=2&distanciaKm=<integer>&avaliacao=<double>",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"medicos"
+											],
+											"query": [
+												{
+													"key": "especialidade",
+													"value": "2"
+												},
+												{
+													"key": "distanciaKm",
+													"value": "<integer>"
+												},
+												{
+													"key": "avaliacao",
+													"value": "<double>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": 300,\n  \"mensagemErro\": \"<string>\"\n}"
+								}
+							]
 						}
 					]
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
 		}
 	]
 }
