@@ -37,6 +37,11 @@ A proposta é desenvolver um sistema de Telemedicina robusto e escalável, integ
     - O sistema deve permitir que o paciente faça login usando um e-mail, CPF e uma senha.
 5. <b>Busca por Médicos (Paciente)</b>:
     - O sistema deve permitir que o paciente visualize a lista de médicos disponíveis, utilizando filtros como especialidade, distância (em kms) e avaliação.
+    - Lógica dos filtros:
+      - "Especialidade" - valor enviado **exato** ao registrado no médico
+      - "Distância em KM" - valor enviado **menor ou igual** ao registrado no médico
+      - "Avaliação" - valor enviado **maior ou igual** ao registrado no médico
+
 6. <b>Agendamento de Consultas (Paciente)</b>:
     - Após selecionar o médico, o paciente deve poder visualizar a agenda do médico e o valor da consulta, e efetuar o agendamento.
     - O usuário paciente poderá cancelar a consulta mediante justificativa.
