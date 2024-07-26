@@ -250,7 +250,7 @@ SAGA é um padrão de design utilizado em sistemas distribuídos para gerenciar 
 # Vídeo Hackaton
 <details>
   <summary>URL</summary>
-<p>Link para vídeo hackaton: ADD LINK </p>
+<p>Link para vídeo hackaton: https://www.youtube.com/watch?v=JCm7w4nOtRE </p>
 </details>
 
 # Documentação do Miro
