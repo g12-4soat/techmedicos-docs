@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "5a98dca2-f1f8-435f-b00b-39e7b032355b",
+		"_postman_id": "f8c366e4-2b0d-425d-9eac-25142f510e07",
 		"name": "Tech Medicos Hackaton API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "17846603",
-		"_collection_link": "https://red-robot-133413.postman.co/workspace/Teste~2e4990a5-a525-4806-8c4c-49a4fd1761b8/collection/17846603-5a98dca2-f1f8-435f-b00b-39e7b032355b?action=share&source=collection_link&creator=17846603"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24235764"
 	},
 	"item": [
 		{
@@ -21,9 +20,13 @@
 									"request": {
 										"auth": {
 											"type": "bearer",
-											"bearer": {
-												"token": "{{acessTokenMedico}}"
-											}
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{acessTokenMedico}}",
+													"type": "string"
+												}
+											]
 										},
 										"method": "GET",
 										"header": [],
@@ -53,15 +56,19 @@
 									"request": {
 										"auth": {
 											"type": "bearer",
-											"bearer": {
-												"token": "{{acessTokenMedico}}"
-											}
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{acessTokenMedico}}",
+													"type": "string"
+												}
+											]
 										},
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n  \"data\": \"2024-07-25\",\r\n  \"horarios\": [\r\n    {\r\n      \"horaInicio\": \"09:00:00\"\r\n    }\r\n  ]\r\n}",
+											"raw": "{\r\n  \"data\": \"2024-07-27\",\r\n  \"horarios\": [\r\n    {\r\n      \"horaInicio\": \"09:00:00\"\r\n    }\r\n  ]\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -69,21 +76,15 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda",
+											"raw": "{{baseUrlApi}}/api/medicos/08aa9067-0ee4-44d0-97a4-014875be6bbd/agenda",
 											"host": [
 												"{{baseUrlApi}}"
 											],
 											"path": [
 												"api",
 												"medicos",
-												":medicoId",
+												"08aa9067-0ee4-44d0-97a4-014875be6bbd",
 												"agenda"
-											],
-											"variable": [
-												{
-													"key": "medicoId",
-													"value": ""
-												}
 											]
 										}
 									},
@@ -94,15 +95,19 @@
 									"request": {
 										"auth": {
 											"type": "bearer",
-											"bearer": {
-												"token": "{{acessTokenMedico}}"
-											}
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{acessTokenMedico}}",
+													"type": "string"
+												}
+											]
 										},
 										"method": "PUT",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "[\r\n  {\r\n    \"horaInicio\": \"10:00:00\"\r\n  }\r\n]",
+											"raw": "[\r\n  {\r\n    \"horaInicio\": \"10:00:00\"\r\n  },\r\n  {\r\n    \"horaInicio\": \"11:00:00\"\r\n  }\r\n]",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -110,26 +115,16 @@
 											}
 										},
 										"url": {
-											"raw": "{{baseUrlApi}}/api/medicos/:medicoId/agenda/:data",
+											"raw": "{{baseUrlApi}}/api/medicos/08aa9067-0ee4-44d0-97a4-014875be6bbd/agenda/2024-07-27",
 											"host": [
 												"{{baseUrlApi}}"
 											],
 											"path": [
 												"api",
 												"medicos",
-												":medicoId",
+												"08aa9067-0ee4-44d0-97a4-014875be6bbd",
 												"agenda",
-												":data"
-											],
-											"variable": [
-												{
-													"key": "medicoId",
-													"value": ""
-												},
-												{
-													"key": "data",
-													"value": ""
-												}
+												"2024-07-27"
 											]
 										}
 									},
@@ -140,9 +135,13 @@
 									"request": {
 										"auth": {
 											"type": "bearer",
-											"bearer": {
-												"token": "{{acessTokenMedico}}"
-											}
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{acessTokenMedico}}",
+													"type": "string"
+												}
+											]
 										},
 										"method": "DELETE",
 										"header": [],
@@ -179,13 +178,41 @@
 							"request": {
 								"auth": {
 									"type": "bearer",
-									"bearer": {
-										"token": "{{acessTokenPaciente}}"
-									}
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{acessTokenPaciente}}",
+											"type": "string"
+										}
+									]
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{baseUrlApi}}/api/medicos"
+								"url": {
+									"raw": "{{baseUrlApi}}/api/medicos?distanciaKm=15&avaliacao=3",
+									"host": [
+										"{{baseUrlApi}}"
+									],
+									"path": [
+										"api",
+										"medicos"
+									],
+									"query": [
+										{
+											"key": "especialidade",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "distanciaKm",
+											"value": "15"
+										},
+										{
+											"key": "avaliacao",
+											"value": "3"
+										}
+									]
+								}
 							},
 							"response": []
 						}
@@ -202,9 +229,13 @@
 									"request": {
 										"auth": {
 											"type": "bearer",
-											"bearer": {
-												"token": "{{acessTokenPaciente}}"
-											}
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{acessTokenPaciente}}",
+													"type": "string"
+												}
+											]
 										},
 										"method": "GET",
 										"header": [],
@@ -233,16 +264,19 @@
 									"request": {
 										"auth": {
 											"type": "bearer",
-											"bearer": {
-												"token": "{{acessTokenMedico}}"
-											}
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{acessTokenMedico}}",
+													"type": "string"
+												}
+											]
 										},
 										"method": "PUT",
 										"header": [
 											{
 												"key": "Token-Id",
-												"value": "{{tokenIdMedico}}",
-												"type": "text"
+												"value": "{{tokenIdMedico}}"
 											}
 										],
 										"body": {
@@ -280,16 +314,19 @@
 									"request": {
 										"auth": {
 											"type": "bearer",
-											"bearer": {
-												"token": "{{acessTokenPaciente}}"
-											}
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{acessTokenPaciente}}",
+													"type": "string"
+												}
+											]
 										},
 										"method": "PUT",
 										"header": [
 											{
 												"key": "Token-Id",
-												"value": "{{tokenIdMedico}}",
-												"type": "text"
+												"value": "{{tokenIdMedico}}"
 											}
 										],
 										"body": {
@@ -329,22 +366,35 @@
 							"request": {
 								"auth": {
 									"type": "bearer",
-									"bearer": {
-										"token": "{{acessTokenPaciente}}"
-									}
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{acessTokenPaciente}}",
+											"type": "string"
+										}
+									]
 								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"medicoId\": \"string\",\r\n  \"pacienteId\": \"string\",\r\n  \"dataConsulta\": \"2024-07-25T09:00\"\r\n}",
+									"raw": "{\r\n  \"medicoId\": \"08aa9067-0ee4-44d0-97a4-014875be6bbd\",\r\n  \"pacienteId\": \"3b938d3b-0c6e-4afc-9e0a-f77459f81f82\",\r\n  \"dataConsulta\": \"2024-07-27T10:00\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{baseUrlApi}}/api/consultas"
+								"url": {
+									"raw": "{{baseUrlApi}}/api/consultas",
+									"host": [
+										"{{baseUrlApi}}"
+									],
+									"path": [
+										"api",
+										"consultas"
+									]
+								}
 							},
 							"response": []
 						},
@@ -353,13 +403,26 @@
 							"request": {
 								"auth": {
 									"type": "bearer",
-									"bearer": {
-										"token": "{{acessTokenPaciente}}"
-									}
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{acessTokenPaciente}}",
+											"type": "string"
+										}
+									]
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{baseUrlApi}}/api/consultas"
+								"url": {
+									"raw": "{{baseUrlApi}}/api/consultas",
+									"host": [
+										"{{baseUrlApi}}"
+									],
+									"path": [
+										"api",
+										"consultas"
+									]
+								}
 							},
 							"response": []
 						}
