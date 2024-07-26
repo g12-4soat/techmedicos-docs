@@ -150,6 +150,8 @@ Optamos por uma arquitetura monolítica modular, pois é o tipo arquitetônico m
 - <b>Amazon CloudWatch</b>: Amazon CloudWatch é um serviço de monitoramento e observabilidade do Tech Medicos que coleta e acompanha métricas, logs e eventos em tempo real. É usado para monitorar a saúde e o desempenho da aplicação, detectar e diagnosticar problemas, e tomar ações automatizadas com base em condições definidas.
   
   <img src="https://github.com/g12-4soat/techmedicos-docs/blob/main/Imagens/TechMedicosArchitectureMVP-aws-micro-service.png" alt="TECHLANCHES" title="TECHLANCHES" style="max-width: 100%;">
+
+- <b>Estimativa de custos AWS </b>: https://github.com/g12-4soat/techmedicos-docs/blob/main/docs/TechMedicos%20-%20MVP%20-%20Calculadora%20de%20Pre%C3%A7os%20da%20AWS.pdf
 </details>
 <details>
   <summary>Solução Completa</summary>
@@ -240,10 +242,19 @@ SAGA é um padrão de design utilizado em sistemas distribuídos para gerenciar 
 5. **Ajuste ao Tamanho e Complexidade do Projeto**: Para nosso contexto, com um número limitado de serviços, a coreografia evita a sobrecarga de um orquestrador central, proporcionando uma solução proporcionalmente adequada.
 
   <img src="https://github.com/g12-4soat/techlanches-docs/blob/main/docs/fase5/TechLanchesArchitecture-saga-coreografada.png" alt="TECHLANCHES" title="TECHLANCHES" style="max-width: 100%;">
+
+- <b>Estimativa de custos AWS </b>: https://github.com/g12-4soat/techmedicos-docs/blob/main/docs/TechMedicos%20-%20Solu%C3%A7%C3%A3o%20Completa%20-%20Calculadora%20de%20Pre%C3%A7os%20da%20AWS.pdf
+  
 </details>
 
 # Vídeo Hackaton
 <details>
   <summary>URL</summary>
 <p>Link para vídeo hackaton: ADD LINK </p>
+</details>
+
+# Documentação do Miro
+<details>
+  <summary>URL</summary>
+<p>Link para a documentação do miro: https://miro.com/app/board/uXjVKy9CWhY=/?share_link_id=473372729787 </p>
 </details>
