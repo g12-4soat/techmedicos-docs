@@ -22,7 +22,7 @@
 										"auth": {
 											"type": "bearer",
 											"bearer": {
-												"token": "{{acessToken}}"
+												"token": "{{acessTokenMedico}}"
 											}
 										},
 										"method": "GET",
@@ -54,7 +54,7 @@
 										"auth": {
 											"type": "bearer",
 											"bearer": {
-												"token": "{{acessToken}}"
+												"token": "{{acessTokenMedico}}"
 											}
 										},
 										"method": "POST",
@@ -95,7 +95,7 @@
 										"auth": {
 											"type": "bearer",
 											"bearer": {
-												"token": "{{acessToken}}"
+												"token": "{{acessTokenMedico}}"
 											}
 										},
 										"method": "PUT",
@@ -141,7 +141,7 @@
 										"auth": {
 											"type": "bearer",
 											"bearer": {
-												"token": "{{acessToken}}"
+												"token": "{{acessTokenMedico}}"
 											}
 										},
 										"method": "DELETE",
@@ -180,7 +180,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{acessToken}}"
+										"token": "{{acessTokenPaciente}}"
 									}
 								},
 								"method": "GET",
@@ -203,7 +203,7 @@
 										"auth": {
 											"type": "bearer",
 											"bearer": {
-												"token": "{{acessToken}}"
+												"token": "{{acessTokenPaciente}}"
 											}
 										},
 										"method": "GET",
@@ -229,19 +229,66 @@
 									"response": []
 								},
 								{
-									"name": "Realizar alteração de status da consulta",
+									"name": "Realizar alteração de status da consulta - medico",
 									"request": {
 										"auth": {
 											"type": "bearer",
 											"bearer": {
-												"token": "{{acessToken}}"
+												"token": "{{acessTokenMedico}}"
 											}
 										},
 										"method": "PUT",
 										"header": [
 											{
 												"key": "Token-Id",
-												"value": "{{tokenId}}}",
+												"value": "{{tokenIdMedico}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"status\": 0,\r\n  \"justificativa\": \"string\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrlApi}}/api/consultas/:consultaId/status",
+											"host": [
+												"{{baseUrlApi}}"
+											],
+											"path": [
+												"api",
+												"consultas",
+												":consultaId",
+												"status"
+											],
+											"variable": [
+												{
+													"key": "consultaId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Realizar alteração de status da consulta - paciente",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{acessTokenPaciente}}"
+											}
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Token-Id",
+												"value": "{{tokenIdMedico}}",
 												"type": "text"
 											}
 										],
@@ -283,7 +330,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{acessToken}}"
+										"token": "{{acessTokenPaciente}}"
 									}
 								},
 								"method": "POST",
@@ -307,7 +354,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{acessToken}}"
+										"token": "{{acessTokenPaciente}}"
 									}
 								},
 								"method": "GET",
