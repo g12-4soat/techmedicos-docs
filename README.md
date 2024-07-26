@@ -81,7 +81,7 @@ A proposta é desenvolver um sistema de Telemedicina robusto e escalável, integ
   3. **Demonstração da Infraestrutura na Cloud**
       - Explicação e demonstração do pipeline de deploy da aplicação.
 
-  4. **Demonstração do MVP**: Aplicação executando na nuvem, os itens de 1 a 6 dos requisitosfuncionais, contemplando:
+  4. **Demonstração do MVP**: Aplicação executando na nuvem, os itens de 1 a 6 dos requisitos funcionais, contemplando:
       - Autenticação do Usuário (Médico).
       - Cadastro/Edição de Horários Disponíveis (Médico).
       - Aceite ou Recusa de Consultas Médicas (Médico).
@@ -251,6 +251,7 @@ SAGA é um padrão de design utilizado em sistemas distribuídos para gerenciar 
 <details>
   <summary>URL</summary>
 <p>Link para vídeo hackaton: https://www.youtube.com/watch?v=JCm7w4nOtRE </p>
+<p>*Todas as justificativas, demonstrações do projeto e espeficicações gerais e aprofundadas também estão contidas no vídeo.</p>
 </details>
 
 # Documentação do Miro
